@@ -1,3 +1,9 @@
+# fork note:
+hello!
+This fork removes binaries other than Mac OS and Ubuntu 18.04, so that it can be used for projects that run on OSX for local development and Ubuntu 18 in production, and not carry all the other binaries around.  This is a problem for Heroku, where there's a size limit for deployed slugs.
+
+-------------------------------
+
 # Installation and usage
 
 Install in your Gemfile as usual

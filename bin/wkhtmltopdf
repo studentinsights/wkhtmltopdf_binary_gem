@@ -18,11 +18,6 @@ suffix = case RbConfig::CONFIG['host_os']
              os = 'ubuntu_18.04'
            end
 
-           # CentOS 6 doesn't have `/etc/os-release`.
-           if (os.empty? && File.read('/etc/centos-release').start_with?('CentOS release 6')) ||
-               os.start_with?('amzn_')
-             os = 'centos_6'
-           end
 
            architecture = RbConfig::CONFIG['host_cpu'] == 'x86_64' ? 'amd64' : 'i386'
 
@@ -42,8 +37,8 @@ if File.exist?("#{binary}.gz") && !File.exist?(binary)
 end
 
 unless File.exist? binary
-  raise 'Invalid platform, must be running on Ubuntu 14.04/16.04/18.04 ' \
-        'CentOS 6/7/8, Debian 8/9/10, or intel-based macOS ' \
+  raise 'Invalid platform, must be running on Ubuntu 18.04 ' \
+        'or intel-based macOS ' \
         "(missing binary: #{binary})."
 end
 
